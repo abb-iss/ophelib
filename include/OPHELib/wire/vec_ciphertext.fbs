@@ -1,0 +1,13 @@
+include "ciphertext.fbs";
+
+namespace OPHELib.Wire;
+
+file_extension "fpvciph";
+file_identifier "FPVC";
+
+table VecCiphertext {
+    length: ulong;
+    data:[Ciphertext];
+}
+
+root_type VecCiphertext;

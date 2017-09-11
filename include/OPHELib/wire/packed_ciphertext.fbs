@@ -1,0 +1,14 @@
+include "ciphertext.fbs";
+
+namespace OPHELib.Wire;
+
+file_extension "fppciph";
+file_identifier "FPPC";
+
+table PackedCiphertext {
+    n_plaintexts: ulong;
+    plaintext_bits: ulong;
+    data: Ciphertext;
+}
+
+root_type PackedCiphertext;

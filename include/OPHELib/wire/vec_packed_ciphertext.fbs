@@ -1,0 +1,13 @@
+include "packed_ciphertext.fbs";
+
+namespace OPHELib.Wire;
+
+file_extension "fpvpciph";
+file_identifier "FPVP";
+
+table VecPackedCiphertext {
+    length: ulong;
+    data:[PackedCiphertext];
+}
+
+root_type VecPackedCiphertext;

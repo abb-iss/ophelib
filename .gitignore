@@ -1,0 +1,14 @@
+/CMakeCache.txt
+/CMakeFiles/
+/Makefile
+/cmake_install.cmake
+/gmon.out
+/analysis.txt
+/callgrind.out.*
+/analysis_kg.txt
+/deps.tar
+/wire_
+/deps
+/install
+/include/OPHELib/wire/*.h
+/ophelib-release.zip

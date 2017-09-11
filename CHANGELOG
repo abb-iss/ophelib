@@ -1,0 +1,78 @@
+v 0.3.3
+  - Add getter for modulus to paillier base
+
+v 0.3.2
+  - For LinregPlainEnc, add an alternative way to take callback functions
+
+v 0.3.1
+  - Add new in-place interface for deserialize_from_file
+
+v 0.3.0
+  - Add key size 1024bits
+  - Small fixes
+  - Ready for prototype
+  - Tests run faster by using smaller key size
+
+v 0.2.7
+  - Change doc comments syntax to be javadoc compatible
+  - Consistent naming for vec/matrix wrapper alias types
+
+v 0.2.6
+  - Add flatbuffers include files to artifacts
+
+v 0.2.5
+  - Fix build artifact missing files
+
+v 0.2.4
+  - Use -fPIC everywhere, produce position independent code
+  - Packing for ML
+
+v 0.2.3
+  - Better packing
+  - Fix demo Makefile: missing compiler flag
+  - Add ciphertext packing to hello world program
+  - Add packing (both plain and ciphertext) for arbitrary size vectors
+  - Remove FastPow, was disabled anyways
+  - Perf measurements/comparision for packing
+  - Fit methods return n_iter where applicable
+  - Fast decryption using packing
+  - Function to get version and git ref dynamically
+  - Move packing functions from PaillierBase to Vector::
+
+v 0.2.2
+  - Make build system ready for javascript compilation
+  - Can now disable OpenMP
+  - Can now disable C++ exceptions
+  - Fix various warnings from Clang/32bit build
+  - Better demo program
+  - Fix compilation of NTL and GMP for backwards compatibility
+
+v 0.2.1
+  - Fix build on a fresh Ubuntu 14.04 machine (libgcc 5)
+  - Small adjustments in build system
+
+v 0.2
+  - Add serialization using Flatbuffers
+  - Fix compatibility to Ubuntu 14.04
+
+v 0.1.5
+  - Enable different key sizes and parameters
+  - Complete LinregEncEncUsers
+  - Remove old vector code
+  - Resolve many small todos
+
+v 0.1.4
+  - New multi-stage build system
+  - Finish parallelization
+
+v 0.1.3
+  - Work on documentation
+
+v 0.1.2
+  - Fix artifact generation
+
+v 0.1.1
+  - Minor fixes for doxygen and build artifacts
+
+v 0.1.0
+  - Begin versioning

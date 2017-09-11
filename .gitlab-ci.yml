@@ -1,0 +1,123 @@
+#
+# This file uses the same steps and variables as release-docker.sh
+#
+
+image: docker:latest
+
+stages:
+  - build-image
+  - build
+  - test
+
+variables:
+  IMAGE_NAME: "CH-S-GitLab.ch.abb.com:7443/SecreDS/ophelib:latest"
+
+before_script:
+  - docker --version
+  - docker info
+  - BUILD_PATH=$(grep -m 1 BUILD_PATH Dockerfile | cut -d ' ' -f 3)
+  - BUILD_DEPS_PREFIX=$(grep -m 1 BUILD_DEPS_PREFIX Dockerfile | cut -d ' ' -f 3)
+
+# build the docker image
+build-image:
+  stage: build-image
+  tags:
+    - docker-builder
+  script:
+    - docker build -t "$IMAGE_NAME" .
+
+# run tests
+test:
+  stage: test
+  tags:
+    - docker-builder
+  script:
+    - docker run --rm -t "$IMAGE_NAME" ./test.sh
+
+#
+# release
+#
+
+# variation without build artifacts
+build-default:
+  stage: build
+  except:
+    - tags
+  tags:
+    - docker-builder
+  script:
+    # generate docs
+    - docker run --rm -t "$IMAGE_NAME" doxygen
+
+    # test build with disabled openmp
+    - docker run --rm -t "$IMAGE_NAME" bash -c 'cmake -DENABLE_OPENMP=OFF . && make -j4'
+
+    # test build with disabled exceptions
+    - docker run --rm -t "$IMAGE_NAME" bash -c 'cmake -DENABLE_EXCEPTIONS=OFF . && make -j4'
+
+    # real build
+    - docker run --rm -t "$IMAGE_NAME" bash -c './release.sh'
+
+# variation with build artifacts
+build-release:
+  stage: build
+  only:
+    - tags
+  tags:
+    - docker-builder
+  artifacts:
+    name: "ophelib_${CI_BUILD_TAG}"
+    paths:
+      - lib/
+      - include/
+      - deps/
+      - docs/
+      - Makefile
+      - hello_world.cpp
+      - rand.txt
+      - CHANGELOG
+  script:
+    # generate docs
+    - container_id=$(docker run -d "$IMAGE_NAME" doxygen)
+    - docker attach $container_id
+    - docker cp "$container_id:$BUILD_PATH/docs/" .
+    - docker rm $container_id
+    - rm docs/.gitignore
+    - mv docs/html docs_
+    - rmdir docs
+    - mv docs_ docs
+
+    # test build with disabled openmp
+    - docker run --rm -t "$IMAGE_NAME" bash -c 'cmake -DENABLE_OPENMP=OFF . && make -j4'
+
+    # test build with disabled exceptions
+    - docker run --rm -t "$IMAGE_NAME" bash -c 'cmake -DENABLE_EXCEPTIONS=OFF . && make -j4'
+
+    # real build
+    - container_id=$(docker run -d "$IMAGE_NAME" bash -c './release.sh')
+    - docker attach $container_id
+    - docker cp "$container_id:$BUILD_PATH/bin/" .
+    - docker cp "$container_id:$BUILD_PATH/lib/" .
+    - docker cp "$container_id:$BUILD_DEPS_PREFIX/install" - > "deps.tar"
+    - docker cp "$container_id:$BUILD_PATH/include/OPHELib/wire/" .
+    - mv wire/*_generated.h include/OPHELib/wire/
+    - rm -rf wire
+    - docker rm $container_id
+    - chmod 755 lib
+    - chmod 755 bin
+    - chmod 755 include
+
+    - rm lib/.gitignore
+    - rm bin/.gitignore
+    - cp test/Makefile .
+    - cp test/hello_world.cpp .
+    - cp test/fixtures/rand.txt .
+
+    # copy dependencies
+    - rm -rf "install" "deps"
+    - tar xf "deps.tar"
+    - mv "install" "deps"
+    - rm -rf deps/share
+    - rm "deps.tar"
+    - rm deps/lib/libflatbuffers.a
+    - rm deps/bin/flatc

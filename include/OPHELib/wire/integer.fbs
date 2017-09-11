@@ -1,0 +1,12 @@
+namespace OPHELib.Wire;
+
+file_extension "fpint";
+file_identifier "FPIN";
+
+table Integer {
+    n_bits: ulong;
+    neg: bool;
+    data:[ubyte];
+}
+
+root_type Integer;

@@ -1,0 +1,13 @@
+include "integer.fbs";
+
+namespace OPHELib.Wire;
+
+file_extension "fpvint";
+file_identifier "FPVI";
+
+table VecInteger {
+    length: ulong;
+    data:[Integer];
+}
+
+root_type VecInteger;

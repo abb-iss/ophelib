@@ -1,0 +1,14 @@
+include "vec_float.fbs";
+
+namespace OPHELib.Wire;
+
+file_extension "fpmflt";
+file_identifier "FPMF";
+
+table MatFloat {
+    n_rows: ulong;
+    n_cols: ulong;
+    data:[VecFloat];
+}
+
+root_type MatFloat;

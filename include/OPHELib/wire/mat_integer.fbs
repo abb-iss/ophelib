@@ -1,0 +1,14 @@
+include "vec_integer.fbs";
+
+namespace OPHELib.Wire;
+
+file_extension "fpmint";
+file_identifier "FPMI";
+
+table MatInteger {
+    n_rows: ulong;
+    n_cols: ulong;
+    data:[VecInteger];
+}
+
+root_type MatInteger;

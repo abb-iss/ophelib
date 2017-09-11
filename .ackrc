@@ -1,0 +1,4 @@
+--ignore-dir=lib_/
+--ignore-dir=.idea
+--ignore-dir=deps
+--ignore-dir=docs

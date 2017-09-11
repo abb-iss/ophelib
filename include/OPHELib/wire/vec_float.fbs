@@ -1,0 +1,11 @@
+namespace OPHELib.Wire;
+
+file_extension "fpvflt";
+file_identifier "FPVF";
+
+table VecFloat {
+    length: ulong;
+    data:[float];
+}
+
+root_type VecFloat;

@@ -1,0 +1,12 @@
+include "integer.fbs";
+
+namespace OPHELib.Wire;
+
+file_extension "fpciph";
+file_identifier "FPCT";
+
+table Ciphertext {
+    data: Integer;
+}
+
+root_type Ciphertext;

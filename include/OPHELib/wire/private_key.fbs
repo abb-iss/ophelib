@@ -1,0 +1,16 @@
+include "integer.fbs";
+
+namespace OPHELib.Wire;
+
+file_extension "fpsk";
+file_identifier "FPSK";
+
+table PrivateKey {
+    a_bits: ulong;
+    key_size_bits: ulong;
+    p: Integer;
+    q: Integer;
+    a: Integer;
+}
+
+root_type PrivateKey;

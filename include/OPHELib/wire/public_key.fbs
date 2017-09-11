@@ -1,0 +1,14 @@
+include "integer.fbs";
+
+namespace OPHELib.Wire;
+
+file_extension "fppk";
+file_identifier "FPPK";
+
+table PublicKey {
+    key_size_bits: ulong;
+    n: Integer;
+    g: Integer;
+}
+
+root_type PublicKey;

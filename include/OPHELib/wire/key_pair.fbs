@@ -1,0 +1,14 @@
+include "private_key.fbs";
+include "public_key.fbs";
+
+namespace OPHELib.Wire;
+
+file_extension "fpkp";
+file_identifier "FPKP";
+
+table KeyPair {
+    pub: PublicKey;
+    priv: PrivateKey;
+}
+
+root_type KeyPair;
