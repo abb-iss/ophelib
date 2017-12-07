@@ -1,6 +1,6 @@
 include "vec_float.fbs";
 
-namespace OPHELib.Wire;
+namespace ophelib.Wire;
 
 file_extension "fpmflt";
 file_identifier "FPMF";

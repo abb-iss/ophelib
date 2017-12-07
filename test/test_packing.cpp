@@ -1,13 +1,13 @@
-#include "OPHELib/vector.h"
-#include "OPHELib/packing.h"
-#include "OPHELib/random.h"
-#include "OPHELib/paillier.h"
-#include "OPHELib/util.h"
+#include "ophelib/vector.h"
+#include "ophelib/packing.h"
+#include "ophelib/random.h"
+#include "ophelib/paillier.h"
+#include "ophelib/util.h"
 #include "catch.hpp"
-#include "OPHELib/disable_exception_tests.h"
+#include "ophelib/disable_exception_tests.h"
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 const int keysize = 1024;
 

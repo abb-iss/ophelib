@@ -1,11 +1,11 @@
-#include "OPHELib/integer.h"
-#include "OPHELib/wire.h"
+#include "ophelib/integer.h"
+#include "ophelib/wire.h"
 
 #include <sys/mman.h>
 #include <fcntl.h>
 #include <sys/stat.h>
 
-namespace OPHELib {
+namespace ophelib {
     size_t get_filesize(const std::string &fname) {
         struct stat st;
         if(stat(fname.c_str(), &st) != 0)
@@ -116,7 +116,7 @@ namespace OPHELib {
     template const PrivateKey deserialize_from_file(const std::string &fname);
     template const KeyPair deserialize_from_file(const std::string &fname);
 
-    flatbuffers::Offset<Wire::Integer> serialize(flatbuffers::FlatBufferBuilder &builder, const OPHELib::Integer &i) {
+    flatbuffers::Offset<Wire::Integer> serialize(flatbuffers::FlatBufferBuilder &builder, const ophelib::Integer &i) {
         using namespace Wire::IntegerHelpers;
 
         const auto n_bits = mpz_sizeinbase(i.get_mpz_t(), 2);

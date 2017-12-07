@@ -1,6 +1,6 @@
-#include "OPHELib/integer.h"
+#include "ophelib/integer.h"
 
-namespace OPHELib {
+namespace ophelib {
     Integer::Integer() { }
 
     Integer::Integer(const mpz_class &input) {

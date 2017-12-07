@@ -1,8 +1,8 @@
-#include "OPHELib/paillier_fast.h"
-#include "OPHELib/random.h"
-#include "OPHELib/util.h"
+#include "ophelib/paillier_fast.h"
+#include "ophelib/random.h"
+#include "ophelib/util.h"
 #include "catch.hpp"
-#include "OPHELib/disable_exception_tests.h"
+#include "ophelib/disable_exception_tests.h"
 
 #ifdef PAILLIER_CLASS
 #undef PAILLIER_CLASS
@@ -10,7 +10,7 @@
 #define PAILLIER_CLASS PaillierFast
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 const int keysize = 1024;
 

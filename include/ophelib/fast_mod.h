@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OPHELib/integer.h"
+#include "ophelib/integer.h"
 
-namespace OPHELib {
+namespace ophelib {
 
     /*
      * Reduction of modulo `p^2*q^2` in the first step is easy to do – simply

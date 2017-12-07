@@ -1,6 +1,6 @@
 include "integer.fbs";
 
-namespace OPHELib.Wire;
+namespace ophelib.Wire;
 
 file_extension "fpciph";
 file_identifier "FPCT";

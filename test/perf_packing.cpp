@@ -1,6 +1,6 @@
-#include "OPHELib/paillier_fast.h"
-#include "OPHELib/packing.h"
-#include "OPHELib/util.h"
+#include "ophelib/paillier_fast.h"
+#include "ophelib/packing.h"
+#include "ophelib/util.h"
 
 #ifdef NDEBUG
 #undef NDEBUG
@@ -8,7 +8,7 @@
 #include <cassert>
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 const int keysize = 2048;
 

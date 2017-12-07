@@ -1,4 +1,4 @@
-namespace OPHELib.Wire;
+namespace ophelib.Wire;
 
 file_extension "fpvflt";
 file_identifier "FPVF";

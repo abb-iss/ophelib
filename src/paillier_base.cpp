@@ -1,10 +1,10 @@
-#include "OPHELib/paillier_base.h"
-#include "OPHELib/error.h"
+#include "ophelib/paillier_base.h"
+#include "ophelib/error.h"
 
 #include <sstream>
 #include <vector>
 
-namespace OPHELib {
+namespace ophelib {
     Ciphertext::Ciphertext(const Integer &data_, const std::shared_ptr <Integer> &n2_shared_, const std::shared_ptr<FastMod> &fast_mod_)
             : data(data_),
               n2_shared(n2_shared_),
@@ -154,7 +154,7 @@ namespace OPHELib {
         return o.str();
     }
 
-    KeyPair::KeyPair(const OPHELib::PublicKey &pub_, const OPHELib::PrivateKey &priv_)
+    KeyPair::KeyPair(const ophelib::PublicKey &pub_, const ophelib::PrivateKey &priv_)
             : pub(pub_),
               priv(priv_) { }
 

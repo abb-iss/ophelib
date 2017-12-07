@@ -1,9 +1,9 @@
 #pragma once
 
-#include "OPHELib/vector.h"
-#include "OPHELib/paillier_base.h"
+#include "ophelib/vector.h"
+#include "ophelib/paillier_base.h"
 
-namespace OPHELib {
+namespace ophelib {
 
     /**
      * Represents a ciphertext which contains multiple

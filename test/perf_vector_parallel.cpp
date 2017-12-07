@@ -1,9 +1,9 @@
-#include "OPHELib/vector.h"
-#include "OPHELib/paillier_fast.h"
+#include "ophelib/vector.h"
+#include "ophelib/paillier_fast.h"
 #include "catch.hpp"
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 const float eps = 0.0001;
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "OPHELib/integer.h"
+#include "ophelib/integer.h"
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -10,7 +10,7 @@
 #include <NTL/ZZ.h>
 #pragma GCC diagnostic pop
 
-namespace OPHELib {
+namespace ophelib {
     /**
      * @file
      * Conversions from to NTL/GMP number format.
@@ -26,19 +26,19 @@ namespace OPHELib {
      * @param z output parameter
      * @param a input value
      */
-    void conv(OPHELib::Integer& z, const NTL::RR& a);
+    void conv(ophelib::Integer& z, const NTL::RR& a);
 
     /**
      * From NTL::ZZ BigInt to Integer
      * @param z output parameter
      * @param a input value
      */
-    void conv(OPHELib::Integer& z, const NTL::ZZ& a);
+    void conv(ophelib::Integer& z, const NTL::ZZ& a);
 
     /**
      * From Integer to NTL::ZZ BigInt
      * @param z output parameter
      * @param a input value
      */
-    void conv(NTL::RR& z, const OPHELib::Integer& a);
+    void conv(NTL::RR& z, const ophelib::Integer& a);
 }

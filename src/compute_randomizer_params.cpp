@@ -1,9 +1,9 @@
-#include "OPHELib/util.h"
+#include "ophelib/util.h"
 
 #include <iostream>
 #include <cmath>
 
-using namespace OPHELib;
+using namespace ophelib;
 using namespace std;
 
 double compute_bits(const size_t n_gn_pow_r, const size_t n_gn_use) {

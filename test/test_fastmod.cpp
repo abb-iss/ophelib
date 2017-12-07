@@ -1,10 +1,10 @@
-#include "OPHELib/fast_mod.h"
-#include "OPHELib/paillier.h"
-#include "OPHELib/random.h"
+#include "ophelib/fast_mod.h"
+#include "ophelib/paillier.h"
+#include "ophelib/random.h"
 #include "catch.hpp"
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 const int keysize = 1024;
 

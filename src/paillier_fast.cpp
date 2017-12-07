@@ -1,8 +1,8 @@
-#include "OPHELib/paillier_fast.h"
-#include "OPHELib/random.h"
-#include "OPHELib/omp_wrap.h"
+#include "ophelib/paillier_fast.h"
+#include "ophelib/random.h"
+#include "ophelib/omp_wrap.h"
 
-namespace OPHELib {
+namespace ophelib {
     PaillierFast::PaillierFast(const size_t key_size_bits_, const size_t a_bits_, const size_t r_bits_)
             : PaillierBase(key_size_bits_),
               a_bits(a_bits_),

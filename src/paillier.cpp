@@ -1,11 +1,11 @@
-#include "OPHELib/paillier.h"
-#include "OPHELib/random.h"
-#include "OPHELib/error.h"
+#include "ophelib/paillier.h"
+#include "ophelib/random.h"
+#include "ophelib/error.h"
 
 #include <gmpxx.h>
 #include <memory>
 
-namespace OPHELib {
+namespace ophelib {
 
     Paillier::Paillier(const PublicKey &pub_)
             : PaillierBase(pub_) {

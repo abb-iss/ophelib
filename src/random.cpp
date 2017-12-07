@@ -1,9 +1,9 @@
-#include "OPHELib/random.h"
-#include "OPHELib/error.h"
+#include "ophelib/random.h"
+#include "ophelib/error.h"
 
 #include <fstream>
 
-namespace OPHELib {
+namespace ophelib {
     Random::Random() {
         std::ifstream urandom("/dev/urandom", std::ios::binary);
         unsigned long seed = 0;

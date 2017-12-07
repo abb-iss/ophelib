@@ -1,6 +1,6 @@
-#include "OPHELib/packing.h"
+#include "ophelib/packing.h"
 
-namespace OPHELib {
+namespace ophelib {
 
     PackedCiphertext::PackedCiphertext(const Ciphertext &data_, const size_t n_plaintexts_, const size_t plaintext_bits_)
             : data(data_),

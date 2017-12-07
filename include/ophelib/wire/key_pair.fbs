@@ -1,7 +1,7 @@
 include "private_key.fbs";
 include "public_key.fbs";
 
-namespace OPHELib.Wire;
+namespace ophelib.Wire;
 
 file_extension "fpkp";
 file_identifier "FPKP";

@@ -1,8 +1,8 @@
-#include "OPHELib/paillier_fast.h"
-#include "OPHELib/util.h"
+#include "ophelib/paillier_fast.h"
+#include "ophelib/util.h"
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 #ifndef PERF_N_ITER
 #define PERF_N_ITER 200

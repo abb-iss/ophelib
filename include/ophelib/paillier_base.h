@@ -1,13 +1,13 @@
 #pragma once
 
-#include "OPHELib/integer.h"
-#include "OPHELib/fast_mod.h"
-#include "OPHELib/error.h"
+#include "ophelib/integer.h"
+#include "ophelib/fast_mod.h"
+#include "ophelib/error.h"
 
 #include <memory>
 #include <vector>
 
-namespace OPHELib {
+namespace ophelib {
 
     /**
      * An encrypted Integer value

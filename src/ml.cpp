@@ -1,7 +1,7 @@
-#include "OPHELib/ml.h"
-#include "OPHELib/packing.h"
+#include "ophelib/ml.h"
+#include "ophelib/packing.h"
 
-namespace OPHELib {
+namespace ophelib {
     namespace ML {
 
         LinregPlain::LinregPlain(const Integer &multiplier_, const Integer &alpha_inv_, const size_t n_iter_)

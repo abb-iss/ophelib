@@ -1,11 +1,11 @@
-#include "OPHELib/integer.h"
-#include "OPHELib/fast_mod.h"
-#include "OPHELib/error.h"
+#include "ophelib/integer.h"
+#include "ophelib/fast_mod.h"
+#include "ophelib/error.h"
 
 #include <future>
 #include <vector>
 
-namespace OPHELib {
+namespace ophelib {
     FastMod::FastMod(const Integer &p_, const Integer &q_)
             : p(p_),
               q(q_),

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "OPHELib/integer.h"
+#include "ophelib/integer.h"
 
 #include <vector>
 #include <iostream>
@@ -17,7 +17,7 @@
 #define OPHELIB_GIT_REF unknown-ref
 #endif
 
-namespace OPHELib {
+namespace ophelib {
     /**
      * Binomial coefficient
      */

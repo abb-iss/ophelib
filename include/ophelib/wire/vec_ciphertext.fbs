@@ -1,6 +1,6 @@
 include "ciphertext.fbs";
 
-namespace OPHELib.Wire;
+namespace ophelib.Wire;
 
 file_extension "fpvciph";
 file_identifier "FPVC";

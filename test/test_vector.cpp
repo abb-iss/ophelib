@@ -1,14 +1,14 @@
-#include "OPHELib/vector.h"
-#include "OPHELib/paillier_fast.h"
+#include "ophelib/vector.h"
+#include "ophelib/paillier_fast.h"
 #include "catch.hpp"
-#include "OPHELib/disable_exception_tests.h"
+#include "ophelib/disable_exception_tests.h"
 
 #include <string>
 #include <fstream>
 #include <streambuf>
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 const int keysize = 1024;
 const float eps = 0.0001;

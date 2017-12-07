@@ -10,5 +10,5 @@
 /wire_
 /deps
 /install
-/include/OPHELib/wire/*.h
+/include/ophelib/wire/*.h
 /ophelib-release.zip

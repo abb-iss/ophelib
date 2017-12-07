@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OPHELib/paillier_base.h"
+#include "ophelib/paillier_base.h"
 
-namespace OPHELib {
+namespace ophelib {
 
     /**
      * Reference implementation of the classic Paillier algorithm.

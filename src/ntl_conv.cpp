@@ -1,10 +1,10 @@
-#include "OPHELib/ntl_conv.h"
+#include "ophelib/ntl_conv.h"
 
 #include <iostream>
 #include <sstream>
 
-namespace OPHELib {
-    void conv(OPHELib::Integer & z, const NTL::RR & a) {
+namespace ophelib {
+    void conv(ophelib::Integer & z, const NTL::RR & a) {
         /*
         ─╔══╗───╔═══╗
         ╔╬╣╠╝───║╔═╗║──────────╔╦╗
@@ -21,7 +21,7 @@ namespace OPHELib {
         mpz_set_str(z.get_mpz_t(), o.str().c_str(), 10);
     }
 
-    void conv(OPHELib::Integer & z, const NTL::ZZ & a) {
+    void conv(ophelib::Integer & z, const NTL::ZZ & a) {
         /*
         ─╔══╗───╔═══╗
         ╔╬╣╠╝───║╔═╗║──────────╔╦╗
@@ -36,7 +36,7 @@ namespace OPHELib {
         mpz_set_str(z.get_mpz_t(), o.str().c_str(), 10);
     }
 
-    void conv(NTL::RR& z, const OPHELib::Integer& a) {
+    void conv(NTL::RR& z, const ophelib::Integer& a) {
         std::ostringstream o(""); o << a.to_string_();
         conv(z, o.str().c_str());
     }

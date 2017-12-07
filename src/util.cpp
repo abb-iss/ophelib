@@ -1,9 +1,9 @@
-#include "OPHELib/util.h"
+#include "ophelib/util.h"
 
 #include <sstream>
 #include <unistd.h>
 
-namespace OPHELib {
+namespace ophelib {
     const Integer nCr(const Integer n_, const Integer r_) {
         Integer n = n_, r;
         if(r_ > n_ / 2)

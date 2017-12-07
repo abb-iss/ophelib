@@ -1,6 +1,6 @@
 include "vec_ciphertext.fbs";
 
-namespace OPHELib.Wire;
+namespace ophelib.Wire;
 
 file_extension "fpmciph";
 file_identifier "FPMC";

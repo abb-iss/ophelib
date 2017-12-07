@@ -1,9 +1,9 @@
 #pragma once
 
-#include "OPHELib/integer.h"
-#include "OPHELib/paillier_fast.h"
-#include "OPHELib/packing.h"
-#include "OPHELib/vector.h"
+#include "ophelib/integer.h"
+#include "ophelib/paillier_fast.h"
+#include "ophelib/packing.h"
+#include "ophelib/vector.h"
 
 #include <functional>
 
@@ -22,7 +22,7 @@
 using NTL::Vec;
 using NTL::Mat;
 
-namespace OPHELib {
+namespace ophelib {
 
     /**
      * This namespace contains all the machine learning functionality.

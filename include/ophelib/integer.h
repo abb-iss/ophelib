@@ -6,7 +6,7 @@
  * Namespace containing all functionality of the library. Nothing is defined
  * outside of this namespace.
  */
-namespace OPHELib {
+namespace ophelib {
 
 /*
  * number of Miller-Rabin iterations for an error rate of less than 2^-80 for

@@ -1,12 +1,12 @@
 #pragma once
 
-#include "OPHELib/paillier_base.h"
+#include "ophelib/paillier_base.h"
 
 #include <memory>
 
 #include <gmpxx.h>
 
-namespace OPHELib {
+namespace ophelib {
 
     /**
      * Fast implementation of the Paillier algorithm, using some

@@ -1,8 +1,8 @@
-#include "OPHELib/util.h"
+#include "ophelib/util.h"
 #include "catch.hpp"
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 TEST_CASE("util") {
 

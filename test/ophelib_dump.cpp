@@ -1,10 +1,10 @@
-#include <OPHELib/wire.h>
+#include <ophelib/wire.h>
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 void help() {
-    cerr << "Utility to dump serialized OPHELib files to console." << endl;
+    cerr << "Utility to dump serialized ophelib files to console." << endl;
     cerr << "Usage: ophelib_dump <type> <filename>" << endl;
     cerr << "    Where type is:" << endl;
     cerr << "    I  -> Integer" << endl;

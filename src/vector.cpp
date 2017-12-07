@@ -1,13 +1,13 @@
-#include "OPHELib/vector.h"
-#include "OPHELib/integer.h"
-#include "OPHELib/paillier_base.h"
-#include "OPHELib/packing.h"
-#include "OPHELib/omp_wrap.h"
+#include "ophelib/vector.h"
+#include "ophelib/integer.h"
+#include "ophelib/paillier_base.h"
+#include "ophelib/packing.h"
+#include "ophelib/omp_wrap.h"
 
 #include <fstream>
-#include <OPHELib/random.h>
+#include <ophelib/random.h>
 
-namespace OPHELib {
+namespace ophelib {
     namespace Vector {
 
         template<typename number>
@@ -609,7 +609,7 @@ namespace OPHELib {
                     float x = M[i][j];
                     if(x > 1) x = 1;
                     if(x < -1) x = -1;
-                    OPHELib::conv(ret[i][j], NTL::conv<RR>(x) * factor_);
+                    ophelib::conv(ret[i][j], NTL::conv<RR>(x) * factor_);
                 }
             }
 

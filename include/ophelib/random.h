@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OPHELib/integer.h"
+#include "ophelib/integer.h"
 
-namespace OPHELib {
+namespace ophelib {
 
     /**
      * Random provider. Wraps GMPs mpz_urandomm(). Is implemented as a singleton,

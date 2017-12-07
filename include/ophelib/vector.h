@@ -1,7 +1,7 @@
 #pragma once
 
-#include "OPHELib/paillier_base.h"
-#include "OPHELib/ntl_conv.h"
+#include "ophelib/paillier_base.h"
+#include "ophelib/ntl_conv.h"
 
 #include <fstream>
 
@@ -21,7 +21,7 @@ using NTL::Vec;
 using NTL::Mat;
 using NTL::RR;
 
-namespace OPHELib {
+namespace ophelib {
 
     /**
      * Data matrices have `n_samples` rows and `n_features` columns.

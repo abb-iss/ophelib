@@ -1,9 +1,9 @@
-#include "OPHELib/integer.h"
-#include "OPHELib/error.h"
+#include "ophelib/integer.h"
+#include "ophelib/error.h"
 
 #include <gmpxx.h>
 
-namespace OPHELib {
+namespace ophelib {
     std::string Integer::to_string_(const unsigned int base) const {
         //get a pointer to GMP's internal memory deallocator function
         void (*deallocator)(void *, size_t);

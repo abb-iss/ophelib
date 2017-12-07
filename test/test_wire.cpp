@@ -1,13 +1,13 @@
-#include "OPHELib/integer.h"
-#include "OPHELib/wire.h"
-#include "OPHELib/paillier_fast.h"
-#include "OPHELib/util.h"
-#include "OPHELib/packing.h"
+#include "ophelib/integer.h"
+#include "ophelib/wire.h"
+#include "ophelib/paillier_fast.h"
+#include "ophelib/util.h"
+#include "ophelib/packing.h"
 #include "catch.hpp"
-#include "OPHELib/disable_exception_tests.h"
+#include "ophelib/disable_exception_tests.h"
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 const int keysize = 1024;
 

@@ -19,7 +19,7 @@
 #include <unistd.h>
 #include <vector>
 
-namespace OPHELib {
+namespace ophelib {
 
     /** @file */
 
@@ -62,7 +62,7 @@ namespace OPHELib {
 
     /**
      * If you want to see a nice stack trace when a segfault occurs,
-     * just #include "OPHELib/backtrace.h" and call this function in
+     * just #include "ophelib/backtrace.h" and call this function in
      * your main() or whereever before running your code.
      * Works only with GCC (maybe also in Clang?).
      */

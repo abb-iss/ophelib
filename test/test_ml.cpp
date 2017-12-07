@@ -1,10 +1,10 @@
-#include "OPHELib/ml.h"
-#include "OPHELib/paillier_fast.h"
+#include "ophelib/ml.h"
+#include "ophelib/paillier_fast.h"
 #include "catch.hpp"
-#include "OPHELib/disable_exception_tests.h"
+#include "ophelib/disable_exception_tests.h"
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 const size_t keysize = 1024;
 

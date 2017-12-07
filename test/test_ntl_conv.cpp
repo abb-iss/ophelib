@@ -1,17 +1,17 @@
-#include "OPHELib/ntl_conv.h"
-#include "OPHELib/random.h"
+#include "ophelib/ntl_conv.h"
+#include "ophelib/random.h"
 #include "catch.hpp"
 
 #include <iostream>
 
 using namespace std;
 using namespace NTL;
-using namespace OPHELib;
+using namespace ophelib;
 
 TEST_CASE("NTL Conversions") {
     const int n_rep = 100;
 
-    SECTION( "void conv(OPHELib::Integer&, const NTL::RR&)" ) {
+    SECTION( "void conv(ophelib::Integer&, const NTL::RR&)" ) {
         for(int u = 0; u < n_rep; u++) {
             long a =  Random::instance().rand_int_bits(50).to_long(),
                  b = -Random::instance().rand_int_bits(50).to_long();
@@ -26,7 +26,7 @@ TEST_CASE("NTL Conversions") {
         }
     }
 
-    SECTION( "void conv(OPHELib::Integer&, const NTL::ZZ&)" ) {
+    SECTION( "void conv(ophelib::Integer&, const NTL::ZZ&)" ) {
         for(int u = 0; u < n_rep; u++) {
             long a =  Random::instance().rand_int_bits(50).to_long(),
                     b = -Random::instance().rand_int_bits(50).to_long();
@@ -41,7 +41,7 @@ TEST_CASE("NTL Conversions") {
         }
     }
 
-    SECTION( "void conv(NTL::RR& z, const OPHELib::Integer& a)" ) {
+    SECTION( "void conv(NTL::RR& z, const ophelib::Integer& a)" ) {
         for(int u = 0; u < n_rep; u++) {
             long a =  Random::instance().rand_int_bits(50).to_long(),
                     b = -Random::instance().rand_int_bits(50).to_long();

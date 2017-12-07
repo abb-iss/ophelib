@@ -1,37 +1,37 @@
 #pragma once
 
-#include "OPHELib/integer.h"
-#include "OPHELib/paillier_base.h"
-#include "OPHELib/packing.h"
-#include "OPHELib/error.h"
-#include "OPHELib/vector.h"
+#include "ophelib/integer.h"
+#include "ophelib/paillier_base.h"
+#include "ophelib/packing.h"
+#include "ophelib/error.h"
+#include "ophelib/vector.h"
 
-#include "OPHELib/wire/integer_generated.h"
-#include "OPHELib/wire/ciphertext_generated.h"
-#include "OPHELib/wire/packed_ciphertext_generated.h"
-#include "OPHELib/wire/vec_float_generated.h"
-#include "OPHELib/wire/vec_integer_generated.h"
-#include "OPHELib/wire/vec_ciphertext_generated.h"
-#include "OPHELib/wire/vec_packed_ciphertext_generated.h"
-#include "OPHELib/wire/mat_float_generated.h"
-#include "OPHELib/wire/mat_integer_generated.h"
-#include "OPHELib/wire/mat_ciphertext_generated.h"
-#include "OPHELib/wire/public_key_generated.h"
-#include "OPHELib/wire/private_key_generated.h"
-#include "OPHELib/wire/key_pair_generated.h"
+#include "ophelib/wire/integer_generated.h"
+#include "ophelib/wire/ciphertext_generated.h"
+#include "ophelib/wire/packed_ciphertext_generated.h"
+#include "ophelib/wire/vec_float_generated.h"
+#include "ophelib/wire/vec_integer_generated.h"
+#include "ophelib/wire/vec_ciphertext_generated.h"
+#include "ophelib/wire/vec_packed_ciphertext_generated.h"
+#include "ophelib/wire/mat_float_generated.h"
+#include "ophelib/wire/mat_integer_generated.h"
+#include "ophelib/wire/mat_ciphertext_generated.h"
+#include "ophelib/wire/public_key_generated.h"
+#include "ophelib/wire/private_key_generated.h"
+#include "ophelib/wire/key_pair_generated.h"
 
 #include <fstream>
 #include <limits.h>
 #include <unistd.h>
 
-namespace OPHELib {
+namespace ophelib {
 
     /**
      * Contains all the wrapper classes used for serialization
      * ("over-the-wire") of our data structures. Most stuff in
      * here is generated automatically by
      * [flatc](http://google.github.io/flatbuffers/index.html)
-     * from the definition files in `include/OPHELib/wire`.
+     * from the definition files in `include/ophelib/wire`.
      */
     namespace Wire {
 

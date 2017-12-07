@@ -9,7 +9,7 @@ analysis_kg.txt
 deps.tar
 deps/*
 install/
-include/OPHELib/wire/*.h
+include/ophelib/wire/*.h
 
 docs/*
 bin/*

@@ -1,6 +1,6 @@
-#include "OPHELib/backtrace.h"
+#include "ophelib/backtrace.h"
 
-namespace OPHELib {
+namespace ophelib {
 
     std::vector<std::string> split(const std::string &s, const std::string &delim) {
         std::stringstream strm(s);

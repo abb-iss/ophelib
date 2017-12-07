@@ -1,9 +1,9 @@
-#include "OPHELib/error.h"
+#include "ophelib/error.h"
 #ifdef OPHELIB_ENABLE_EXCEPTIONS
-    #include "OPHELib/backtrace.h"
+    #include "ophelib/backtrace.h"
 #endif
 
-namespace OPHELib {
+namespace ophelib {
 
 #ifdef OPHELIB_ENABLE_EXCEPTIONS
 
@@ -38,4 +38,4 @@ namespace OPHELib {
     }
 
 #endif // OPHELIB_ENABLE_EXCEPTIONS
-} // namespace OPHELib
+} // namespace ophelib

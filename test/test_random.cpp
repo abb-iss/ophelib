@@ -1,10 +1,10 @@
-#include "OPHELib/random.h"
-#include "OPHELib/error.h"
+#include "ophelib/random.h"
+#include "ophelib/error.h"
 #include "catch.hpp"
-#include "OPHELib/disable_exception_tests.h"
+#include "ophelib/disable_exception_tests.h"
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 TEST_CASE("Random") {
     Random& r = Random::instance();

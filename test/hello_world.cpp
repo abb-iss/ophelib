@@ -1,17 +1,17 @@
-#include "OPHELib/paillier_fast.h"
-#include "OPHELib/packing.h"
-#include "OPHELib/util.h"
-#include "OPHELib/ml.h"
+#include "ophelib/paillier_fast.h"
+#include "ophelib/packing.h"
+#include "ophelib/util.h"
+#include "ophelib/ml.h"
 
 using namespace std;
-using namespace OPHELib;
+using namespace ophelib;
 
 /**
  * Small demo program to show basic functionality of
  * the library.
  */
 int main () {
-    cout << "Running on OPHELib version " << ophelib_version() << ", git ref " << ophelib_ref() << endl;
+    cout << "Running on ophelib version " << ophelib_version() << ", git ref " << ophelib_ref() << endl;
 
     const size_t key_size = 2048;
     PaillierFast crypto(key_size);
