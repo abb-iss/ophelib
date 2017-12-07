@@ -30,7 +30,7 @@ efficiency reasons.
 NIST does not provide an estimate for `n=4096`, but according to [GPG](https://www.gnupg.org/faq/gnupg-faq.html#please_use_ecc) it is around 140bit.
 
 ### Randomization
-If an attacker guesses `r`, a single ciphertext can be broken. In the paper `Encryption Performance Improvements of the Paillier Cryptosystem`, 70 bit is used for `r`.
+If an attacker guesses `r`, a single ciphertext can be broken. In the paper "Encryption Performance Improvements of the Paillier Cryptosystem", 70 bit is used for `r`.
 
 [Secomlib](https://github.com/mihaitodor/SeComLib) uses a random number of n bits.
 
