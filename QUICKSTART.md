@@ -1,13 +1,13 @@
 # Quickstart
 
-In the Gitlab project view, go to the `Pipelines -> Tags` section and download the latest build release/artifact file. It contains the header files and the compiled library, for ophelib as well for the libraries we depend on.
+In the Gitlab project view, go to the `Pipelines -> Tags` section and download the latest build release/artifact file. It contains the header files and the compiled library, for OPHELib as well for the libraries we depend on.
 
 ## Demo program
 \include "hello_world.cpp"
 
 There is a small hello world demo program which shows basic usage (shown above).
 
-Although compilation works with GCC 4.x, **libgcc 5 is needed for compilation**. Also we need build-essential (and maybe unzip to unpack the release file). For being able to fetch the key for the new repository, you may need to update your `/etc/environment` with the ABB proxy (don't forget to reload the environment after, i.e. start a new login shell).
+Although compilation works with GCC 4.x, **libgcc 5 is needed for compilation**. Also we need build-essential (and maybe unzip to unpack the release file). For being able to fetch the key for the new repository, you may need to update your `/etc/environment` with proxy settings (the environment must be reloaded afterwards).
 
     sudo -E add-apt-repository ppa:ubuntu-toolchain-r/test
     sudo apt-get update
