@@ -4,7 +4,7 @@
 # This file uses the same steps and variables as .gitlab-ci.yml
 #
 
-IMAGE_NAME="CH-S-GitLab.ch.abb.com:SecreDS/ophelib:latest"
+IMAGE_NAME="ch-s-gitlab.ch.abb.com/secreds/ophelib"
 BUILD_PATH=$(grep -m 1 BUILD_PATH Dockerfile | cut -d ' ' -f 3)
 BUILD_DEPS_PREFIX=$(grep -m 1 BUILD_DEPS_PREFIX Dockerfile | cut -d ' ' -f 3)
 

@@ -1,12 +1,22 @@
-FROM CH-S-GitLab.ch.abb.com:7443/docker-images/ubuntu16-build:latest
+FROM ubuntu:16.04
 
-MAINTAINER Jonathan Müller <jonathan.mueller@ch.abb.com>
+LABEL author="Jonathan Müller <jonathan.mueller@ch.abb.com>"
+LABEL updatedBy="Ognjen Vukovic <ognjen.vukovic@ch.abb.com>"
 
 RUN mkdir /build-deps
 WORKDIR /build-deps
 
 ENV LIBGMP_VERSION 6.1.0
 ENV LIBNTL_VERSION 9.8.0
+
+RUN apt-get update && apt-get install -yq   \
+            build-essential                 \
+            curl                            \
+            m4                              \
+            libtool-bin                     \
+            cmake                       &&  \
+            apt-get clean               &&  \
+            rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN curl https://gmplib.org/download/gmp/gmp-$LIBGMP_VERSION.tar.bz2 \
         > gmp.tar.bz2                                             && \
