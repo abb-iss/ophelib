@@ -62,3 +62,7 @@ rm deps/bin/flatc
 
 # create a zip file with the release artifacts
 zip -r ophelib-release.zip lib include deps docs CHANGELOG
+
+# cleanup
+rm -rf docs deps
+rm -f lib/lib*
