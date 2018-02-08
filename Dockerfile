@@ -51,7 +51,10 @@ RUN curl https://gmplib.org/download/gmp/gmp-$LIBGMP_VERSION.tar.bz2 \
         CPPFLAGS='-D_GLIBCXX_USE_CXX11_ABI=0 -fPIC'               && \
     make -j4                                                      && \
     make -j4 check                                                && \
-    make install
+    make install                                                  && \
+    cd ..                                                         && \
+    rm -f gmp.tar.bz2                                             && \
+    rm -rf gmp
 
 ## 1.3 Install NTL: A Library for doing Number Theory
 RUN curl http://www.shoup.net/ntl/ntl-$LIBNTL_VERSION.tar.gz \
@@ -66,7 +69,10 @@ RUN curl http://www.shoup.net/ntl/ntl-$LIBNTL_VERSION.tar.gz \
         WIZARD=on                                            \
         CXXFLAGS='-D_GLIBCXX_USE_CXX11_ABI=0 -fPIC'       && \
     make -j 4                                             && \
-    make install
+    make install                                          && \
+    cd ../..                                              && \
+    rm -f ntl.tar.gz                                      && \
+    rm -rf ntl
 
 ## 1.4 Install FlatBuffers: an efficient serialization library for memory constrained apps
 RUN curl -L https://github.com/google/flatbuffers/archive/v$FLATBUFFERS_VERSION.tar.gz \
@@ -78,7 +84,10 @@ RUN curl -L https://github.com/google/flatbuffers/archive/v$FLATBUFFERS_VERSION.
         -G "Unix Makefiles"                                                            \
         -DCMAKE_INSTALL_PREFIX:PATH="$(pwd)/../install"                             && \
     make -j4                                                                        && \
-    make install
+    make install                                                                    && \
+    cd ..                                                                           && \
+    rm -f flatbuffers.tar.gz                                                        && \
+    cd ..
 
 # 2. PREPARE FOR OPHELIB BUILD
 

@@ -135,10 +135,16 @@ make -j4
 CMake is used as build system. It is used for the both methods described above. The difference is that when building locally, you need a recent CMake version on your host system wheres when using Docker to build, only the CMake from inside the container is used. The build artifacts are the copied from within the container to the build artifact folders on your host machine.
 
 Files and folders relevant to the build system:
+* scripts for building OPHELib
+    * ```release-docker.sh```
+    * ```release.sh```
 * build artifact output directories
     * ```bin/```
     * ```include/```
     * ```lib/```
+* files used for docker build
+    * ```Dockerfile```
+    * ```.dockerignore```
 * cmake build definition file
     * ```CMakeLists.txt```
 * cmake cache files
@@ -146,18 +152,14 @@ Files and folders relevant to the build system:
     * ```CMakeFiles```
     * ```cmake_install.cmake```
     * ```Makefile```
-* used for docker build
-    * ```Dockerfile```
-    * ```.dockerignore```
 * directory where the dependencies are built and stored, if using manual build
     * ```lib_```
-* scripts for building OPHELib
-    * ```release-docker.sh```
-    * ```release.sh```
 * script for running profiler
     * ```profile.sh```
 * script for running tests
     * ```test.sh```
+* script for cleaning the build artifacts
+    * ```clean.sh```
 
 ## Build options
 Several options can be passed to CMake. Some concern compiler flags (optimization), while others allow to enable and disable features. Passing options to cmake: `-D<name>=value`, e.g. `-DENABLE_OPENMP=OFF` disabled OpenMP.
