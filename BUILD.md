@@ -12,26 +12,25 @@ There are two ways to build `OPHELib`.
 2. Manually performing the build in the local workspace. This way also allows integration with an IDE.
 
 ## Building using Docker
-The prerequisite is to have `Docker` installed, which can be verified by executing
+The prerequisite is to have `Docker` installed, which can be verified by executing in the terminal:
 
 ```
-$docker --version
+docker --version
 ```
-in the terminal.
 
-The build can be done by executing the script:
+The build can be done by executing the script in the terminal:
 
 ```
-$./release-docker.sh
+./release-docker.sh
 ```
-in the terminal. The resulting artifact is the file `ophelib-release.zip`.
+The resulting artifact is the file `ophelib-release.zip`.
 
 The script:
-* Downloads and compiles the dependencies GMP, NTL, and FlatBuffers in a container based on Ubuntu, as defined in the file `Dockerfile`.
-* Adds the source files from the workspace to the container, as defined in the files `Dockerfile` and `.dockerignore`.
-* Executes `./tests.sh` inside the container
-* Executes `./release.sh` inside the container
-* Copies the resulting artifacts from the container to the workspace as a zip file.
+* downloads and compiles the dependencies GMP, NTL, and FlatBuffers in a container based on Ubuntu, as defined in the file `Dockerfile`,
+* adds the source files from the workspace to the container, as defined in the files `Dockerfile` and `.dockerignore`,
+* executes `./tests.sh` inside the container,
+* executes `./release.sh` inside the container, and
+* copies the resulting artifacts from the container to the workspace as a zip file.
 
 ## Building manually in local workspace
 
@@ -51,27 +50,27 @@ The manual build requires the following tools and dependencies to be installed f
 All the tools and dependencies, except GMP, NTL, and Flatbuffers, are available in the Ubuntu official repository, and can be installed by executing:
 
 ```
-$ sudo apt-get install  build-essential \
-                        curl            \
-                        m4              \
-                        libtool-bin     \
-                        doxygen         \
-                        graphviz        \
-                        cmake
+sudo apt-get install  build-essential \
+                      curl            \
+                      m4              \
+                      libtool-bin     \
+                      doxygen         \
+                      graphviz        \
+                      cmake
 ```
 
 CMake version can be checked by executing:
 
 ```
-$ cmake --version
+cmake --version
 ```
 
-If the version is below 3.2, and a newer one is not available in the official repository, the following repository can be added:
+If the version is below 3.2 and a newer one is not available in the official repository, the following repository can be added:
 
 ```
-$ sudo apt-get install software-properties-common
-$ sudo -E add-apt-repository ppa:george-edison55/cmake-3.x
-$ sudo apt-get update && sudo apt-get install cmake
+sudo apt-get install software-properties-common
+sudo -E add-apt-repository ppa:george-edison55/cmake-3.x
+sudo apt-get update && sudo apt-get install cmake
 ```
 
 GMP can be installed by executing in the terminal:
@@ -132,7 +131,7 @@ make -j4
 
 # Apendix
 
-## The build system explained
+## Build system explained
 CMake is used as build system. It is used for the both methods described above. The difference is that when building locally, you need a recent CMake version on your host system wheres when using Docker to build, only the CMake from inside the container is used. The build artifacts are the copied from within the container to the build artifact folders on your host machine.
 
 Files and folders relevant to the build system:
