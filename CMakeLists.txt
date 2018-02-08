@@ -178,7 +178,6 @@ set_target_properties(ophelib_static PROPERTIES OUTPUT_NAME ophelib)
 aux_source_directory(${PROJECT_SOURCE_DIR}/test TEST_SOURCES)
 list(REMOVE_ITEM TEST_SOURCES ${PROJECT_SOURCE_DIR}/test/perf_base_ops.cpp)
 list(REMOVE_ITEM TEST_SOURCES ${PROJECT_SOURCE_DIR}/test/perf_packing.cpp)
-list(REMOVE_ITEM TEST_SOURCES ${PROJECT_SOURCE_DIR}/test/hello_world.cpp)
 list(REMOVE_ITEM TEST_SOURCES ${PROJECT_SOURCE_DIR}/test/ophelib_dump.cpp)
 list(REMOVE_ITEM TEST_SOURCES ${PROJECT_SOURCE_DIR}/test/perf_vector_parallel.cpp)
 add_executable(tests ${TEST_SOURCES})
@@ -216,8 +215,22 @@ add_executable(compute_randomizer_params src/compute_randomizer_params.cpp)
 target_link_libraries(compute_randomizer_params ophelib_static)
 
 # ophelib hello_world
-add_executable(hello_world ${PROJECT_SOURCE_DIR}/test/hello_world.cpp)
+add_executable(hello_world ${PROJECT_SOURCE_DIR}/demo/src/hello_world.cpp)
 target_link_libraries(hello_world ophelib_static)
+add_custom_command(TARGET hello_world POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                           ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/hello_world
+                           ${PROJECT_SOURCE_DIR}/demo/hello_world)
+add_custom_command(TARGET hello_world POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                           ${PROJECT_SOURCE_DIR}/test/fixtures/rand.txt
+                           ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/rand.txt
+                   MAIN_DEPENDENCY ${PROJECT_SOURCE_DIR}/test/fixtures/rand.txt)
+add_custom_command(TARGET hello_world POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy
+                           ${PROJECT_SOURCE_DIR}/test/fixtures/rand.txt
+                           ${PROJECT_SOURCE_DIR}/demo/rand.txt
+                   MAIN_DEPENDENCY ${PROJECT_SOURCE_DIR}/test/fixtures/rand.txt)
 
 # ophelib dump helper
 add_executable(ophelib_dump ${PROJECT_SOURCE_DIR}/test/ophelib_dump.cpp)
