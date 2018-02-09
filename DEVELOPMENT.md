@@ -1,109 +1,76 @@
 # Development
+This is a guide on how to set up and use a local development environment for OPHELib.
 
-## Dev env setup
-If you want to set up a local dev environment, or just build the project manually, follow this guide.
+## Preparing the build environment
+First step is to prepare the build environment for OPHELib.
+Both automatic and manual ways are required, and they can be prepared by following the steps in [Build](BUILD.md) (for both builds).
 
-If you want to build the project automatically in a Docker container, read [Build](BUILD.md).
+## Runing tests
+Tests can be run manually by executing:
 
-First, we need a recent CMake version. Skip this if your OS already ships with CMake version >= 3.2 (e.g., Ubuntu 16.04).
-
-    sudo apt-get install software-properties-common
-    sudo -E add-apt-repository ppa:george-edison55/cmake-3.x
-    sudo apt-get update
-    sudo apt-get upgrade cmake
-
-Clone the source tree:
-
-    git clone git@CH-S-GitLab.ch.abb.com:SecreDS/ophelib.git
-    cd ophelib
-
-Then, we have to prepare [NTL](http://www.shoup.net/ntl/doc/tour.html) and [GMP](https://gmplib.org/).
-
-    # GMP
-    cd lib_
-    curl https://gmplib.org/download/gmp/gmp-$(grep -m 1 LIBGMP_VERSION ../Dockerfile | cut -d ' ' -f 3).tar.bz2 > gmp.tar.bz2
-    mkdir gmp install
-    tar xfjv gmp.tar.bz2 -C gmp --strip-components=1
-    cd gmp
-    ./configure --prefix "$(pwd)/../install" --enable-cxx CXXFLAGS='-fPIC'
-    make -j4
-    make -j4 check
-    make install
-    cd ..
-
-    # NTL
-    curl http://www.shoup.net/ntl/ntl-$(grep -m 1 LIBNTL_VERSION ../Dockerfile | cut -d ' ' -f 3).tar.gz > ntl.tar.gz
-    mkdir ntl
-    tar xfv ntl.tar.gz -C ntl --strip-components=1
-    cd ntl/src
-    ./configure DEF_PREFIX="$(pwd)/../../install" SHARED=on NATIVE=on WIZARD=on CXXFLAGS='-fPIC'
-    make -j 4
-    make install
-    cd ../..
-
-    # Flatbuffers
-    curl -L https://github.com/google/flatbuffers/archive/v$(grep -m 1 FLATBUFFERS_VERSION ../Dockerfile | cut -d ' ' -f 3).tar.gz > flatbuffers.tar.gz
-    mkdir flatbuffers
-    tar xfv flatbuffers.tar.gz -C flatbuffers --strip-components=1
-    cd flatbuffers
-    cmake -G "Unix Makefiles"
-    make -j4
-    cd ../..
-
-Now, we can build ophelib:
-
-    cmake .
-    make -j 4
-
-There exist some additional helper scripts. They all clean the build and then call cmake/make with special arguments (they work directly on the host machine as well inside a Docker container):
-
-    # build in debug mode, run tests
-    ./tests.sh
-    # build in release mode
-    ./release.sh
-    # build in profile mode, and then call gprof on the results
-    ./profile.sh
-
-## Run tests
-To run the tests manually, execute `bin/tests`.
+```
+./bin/tests
+```
+The tests are using the sample files in `test/fixtures`.
 
 [Catch](https://github.com/philsquared/Catch) is used as test framework. This means that `bin/tests` accepts the options listed [here](https://github.com/philsquared/Catch/blob/master/docs/command-line.md).
 
-## Release a new version
-Update the `CHANGELOG` file to contain the version you want to release like this (here, releasing `0.2.3`):
+OPHELIb can also be build in the debug mode with the tests being executing automatically:
 
-    v 0.2.3
-      - Better packing
-      ...
+```
+./tests.sh
+```
 
-Then, tag (when tagging, the top line in `CHANGELOG` must be `v <tag-name>`:
+## Releasing a new version
+First, the `CHANGELOG` file needs to be updated with the version that is to be released and with the changes. For example, in the case of `0.2.3` it was added:
 
-    git tag <version>
-    git push --tags
+```
+v 0.2.3
+- Better packing
+...
+```
 
-Then, wait until CI has generated the build artifacts. Done!
-Alternatively, you can run `./release.sh` or `./release-docker.sh` locally and the pack the build artifacts manually.
-To continue, add a new line on top of the `CHANGELOG`:
+The next step is to add a git tag, where the tag is the version number (`0.2.3` in the previous example):
 
-    v 0.2.4 (unreleased)
-      - Did something new
-      ...
+```
+git tag <version>
+git push --tags
+```
 
-    v 0.2.3
-      - Better packing
-      ...
+Finally, the build can be performed by executing `./release.sh` and `./release-docker.sh` to create the artifacts.
+
+It is a good practice to keep the `CHANGELOG` up-to-date, even if the version is not released yet.
+For example:
+
+```
+v 0.2.4 (unreleased)
+- Did something new
+...
+
+v 0.2.3
+- Better packing
+...
+```
 
 ## Profiling
+To run the profiler, `valgrind` needs to be installed:
 
-    sudo apt-get install valgrind
-    ./profile.sh
+```
+sudo apt-get install valgrind
+```
 
-Find the results in `analysis.txt`.
+Then, the profiling can be done by running
+
+```
+./profile.sh
+```
+The results can be found in `analysis.txt`. `gprof` can be used to see the results.
 
 ## Documentation
-You can extract documentation using doxygen:
+The documentation can be extracted using doxygen:
 
-    sudo apt-get install doxygen
-    doxygen
-
-You will find the generated html docs in `docs/html/index.html`. These files are also included in the CI build artifacts.
+```
+sudo apt-get install doxygen
+doxygen
+```
+The generated html docs are in `docs/html/index.html`. These files are also included in the automatic build artifacts.
