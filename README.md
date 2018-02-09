@@ -6,13 +6,13 @@ OPHELib is a library providing optimized homomorphic encryption functionality, a
 The recommended quick start for using OPHELib library in projects is to:
 1. perform the automatic build using Docker, as described in [BUILD](BUILD.md),
 2. read the brief guide on [APIs](API.md), and
-3. study the demo use of OPHELib in `demo/` folder.
+3. study the [DEMO](DEMO.md).
 
 The recommended quick start for setting up a development environment for OPHELib is to:
 1. perform both automatic and manual build described in [BUILD](BUILD.md),
 2. read the guide on setting up the development environment in [DEVELOPMENT](DEVELOPMENT.md),
 3. read the brief guide on [APIs](API.md), and
-4. study the demo use of OPHELib in `demo/` folder.
+4. study the [DEMO](DEMO.md).
 
 ## Parameters and Remarks on Implementation
 ### Key Size
