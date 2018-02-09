@@ -12,3 +12,5 @@
 /install
 /include/ophelib/wire/*.h
 /ophelib-release.zip
+/demo/hello_world
+/demo/rand.txt
