@@ -4,7 +4,7 @@ The following instructions and build scripts assume that the user is running a L
 
 The first step in building `OPHELib` is to clone its git repository containing the source code:
 
-    git clone https://github.com/abb/ophelib
+    git clone https://github.com/abb-iss/ophelib
     cd ophelib
 
 There are two ways to build `OPHELib`:
