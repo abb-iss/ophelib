@@ -1,5 +1,5 @@
 # Introduction to API
-Here is a brief overview of the API with examples.
+A brief overview of the API with examples is presented here.
 
 Load data:
 

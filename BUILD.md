@@ -7,7 +7,7 @@ The first step in building `OPHELib` is to clone its git repository containing t
     git clone https://github.com/abb/ophelib
     cd ophelib
 
-There are two ways to build `OPHELib`.
+There are two ways to build `OPHELib`:
 1. Automatically using `Docker`, where the entire build process is performed in a container and the resulting artifacts are saved in the local workspace. This is the fastest and the least intrusive way to build the library, since all the steps are automated and all dependencies are only built and installed in the auxiliary container. The build using `Docker` can also be used for CI.
 2. Manually performing the build in the local workspace. This way also allows integration with an IDE.
 
@@ -35,17 +35,17 @@ The script:
 ## Building manually in local workspace
 
 The manual build requires the following tools and dependencies to be installed first:
-* G++ compailer,
-* Make,
-* Curl,
-* GNU m4,
-* GNU libtool,
-* doxygen,
-* graphviz,
-* CMake version 3.2 or later,
-* GMP,
-* NTL, and
-* Flatbuffers.
+* G++ compailer
+* Make
+* Curl
+* GNU m4
+* GNU libtool
+* doxygen
+* graphviz
+* CMake version 3.2 or later
+* GMP
+* NTL
+* Flatbuffers
 
 All the tools and dependencies, except GMP, NTL, and Flatbuffers, are available in the Ubuntu official repository, and can be installed by executing:
 
@@ -90,7 +90,7 @@ cd ..
 rm -f gmp.tar.bz2
 rm -rf gmp
 ```
-NTL can be installed by executing in the terminal (while still in *lib_* directory):
+NTL can be installed by executing in the terminal (while still in the *lib_* directory):
 
 ```
 curl http://www.shoup.net/ntl/ntl-$(grep -m 1 LIBNTL_VERSION ../Dockerfile | cut -d ' ' -f 3).tar.gz > ntl.tar.gz
@@ -106,7 +106,7 @@ rm -f ntl.tar.gz
 rm -rf ntl
 ```
 
-Flatbuffers can be installed by executing in the terminal (while still in *lib_* directory):
+Flatbuffers can be installed by executing in the terminal (while still in the *lib_* directory):
 
 ```
 curl -L https://github.com/google/flatbuffers/archive/v$(grep -m 1 FLATBUFFERS_VERSION ../Dockerfile | cut -d ' ' -f 3).tar.gz > flatbuffers.tar.gz
@@ -122,7 +122,7 @@ rm -f flatbuffers.tar.gz
 cd ..
 ```
 
-Finally, OPHELib can be built by executing in the terminal:
+Finally, `OPHELib` can be built by executing in the terminal:
 
 ```
 cmake .
@@ -131,38 +131,38 @@ make -j4
 
 # Apendix
 
-## Build system explained
-CMake is used as build system. It is used for the both methods described above. The difference is that when building locally, you need a recent CMake version on your host system wheres when using Docker to build, only the CMake from inside the container is used. The build artifacts are the copied from within the container to the build artifact folders on your host machine.
+## The Build System Explained
+CMake is used as the build system. It is used for both methods described above. The difference is that when building locally, you need a recent CMake version on your host system, whereas when using Docker to build, only the CMake from inside the container is used. The build artifacts are then copied from within the container to the build artifact folders on your host machine.
 
 Files and folders relevant to the build system:
-* scripts for building OPHELib
+* Scripts for building `OPHELib`
     * ```release-docker.sh```
     * ```release.sh```
-* build artifact output directories
+* Build artifact output directories
     * ```bin/```
     * ```include/```
     * ```lib/```
-* files used for docker build
+* Files used for docker build
     * ```Dockerfile```
     * ```.dockerignore```
-* cmake build definition file
+* CMake build definition file
     * ```CMakeLists.txt```
-* cmake cache files
+* CMake cache files
     * ```CMakeCache.txt```
     * ```CMakeFiles```
     * ```cmake_install.cmake```
     * ```Makefile```
-* directory where the dependencies are built and stored, if using manual build
+* Directory where the dependencies are built and stored if using manual build
     * ```lib_```
-* script for running profiler
+* Script for running profiler
     * ```profile.sh```
-* script for running tests
+* Script for running tests
     * ```test.sh```
-* script for cleaning the build artifacts
+* Script for cleaning the build artifacts
     * ```clean.sh```
 
-## Build options
-Several options can be passed to CMake. Some concern compiler flags (optimization), while others allow to enable and disable features. Passing options to cmake: `-D<name>=value`, e.g. `-DENABLE_OPENMP=OFF` disabled OpenMP.
+## Build Options
+Several options can be passed to CMake, some of which concern compiler flags (optimization), while others enable and disable features. Options can be passed to CMake using the format `-D<name>=value`, e.g. `-DENABLE_OPENMP=OFF` disables OpenMP.
 
 | Name                 | Values              | Default    | Description |
 |----------------------|---------------------|------------|-------------|
@@ -174,4 +174,4 @@ Several options can be passed to CMake. Some concern compiler flags (optimizatio
 | ADDITIONAL_CXX_FLAGS | e.g. "-g"           | "" (empty) | Additional flags to pass to C++ compiler                      |
 | ADDITIONAL_LD_FLAGS  | e.g. "-lto"         | "" (empty) | Additional flags to pass to linker                            |
 
-Thus, running `cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_OPENMP=OFF` would build the project in release mode without OpenMP, but with Exceptions enabled.
+Thus, running `cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_OPENMP=OFF` builds the project in release mode without OpenMP but with exceptions enabled.
