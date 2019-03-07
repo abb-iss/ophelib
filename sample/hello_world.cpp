@@ -53,7 +53,7 @@ int main () {
     cout << endl << endl;
 
     // linear regression
-    const string path = "rand.txt";
+    const string path = "../test/fixtures/rand.txt";
     NTL::Mat<float> X;
     NTL::Vec<float> y;
     Vector::load_data(path, X, y);

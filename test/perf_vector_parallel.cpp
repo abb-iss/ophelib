@@ -22,7 +22,7 @@ const float eps = 0.0001;
  * make -j4 && OMP_NUM_THREADS=2 bin/perf_vector_parallel --durations yes
  */
 TEST_CASE("Vector Ops Parallelization Performance") {
-    const string data_file = "test/fixtures/rand_big.txt";
+    const string data_file = "../test/fixtures/rand_big.txt";
 
     NTL::Mat<float> X_;
     NTL::Vec<float> y_;

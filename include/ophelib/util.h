@@ -9,14 +9,6 @@
 #define STR_EXPAND(tok) #tok
 #define STR(tok) STR_EXPAND(tok)
 
-#ifndef OPHELIB_VERSION
-#define OPHELIB_VERSION unknown-version
-#endif
-
-#ifndef OPHELIB_GIT_REF
-#define OPHELIB_GIT_REF unknown-ref
-#endif
-
 namespace ophelib {
     /**
      * Binomial coefficient
@@ -43,6 +35,11 @@ namespace ophelib {
      * Version of the current build from the changelog
      */
     std::string ophelib_version();
+
+    /**
+     * If was compiled with OpenMP support
+     */
+    bool ophelib_openmp_enabled();
 
     /**
      * Helper class for performance measurements.

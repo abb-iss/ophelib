@@ -14,7 +14,7 @@ const int keysize = 1024;
 const float eps = 0.0001;
 
 TEST_CASE("Vector Ops") {
-    const string data_file = "test/fixtures/x17.txt";
+    const string data_file = "../test/fixtures/x17.txt";
 
     NTL::Mat<float> X_;
     NTL::Vec<float> y_;
