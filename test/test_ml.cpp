@@ -9,7 +9,7 @@ using namespace ophelib;
 const size_t keysize = 1024;
 
 TEST_CASE("ML") {
-    const string data_file = "test/fixtures/rand.txt";
+    const string data_file = "../test/fixtures/rand.txt";
     NTL::Mat<float> X_;
     NTL::Vec<float> y_;
     Vector::load_data(data_file, X_, y_);

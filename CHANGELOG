@@ -1,3 +1,6 @@
+v 0.3.4
+  - Complete overhaul of build system
+
 v 0.3.3
   - Add getter for modulus to paillier base
 

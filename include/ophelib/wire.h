@@ -6,19 +6,19 @@
 #include "ophelib/error.h"
 #include "ophelib/vector.h"
 
-#include "ophelib/wire/integer_generated.h"
-#include "ophelib/wire/ciphertext_generated.h"
-#include "ophelib/wire/packed_ciphertext_generated.h"
-#include "ophelib/wire/vec_float_generated.h"
-#include "ophelib/wire/vec_integer_generated.h"
-#include "ophelib/wire/vec_ciphertext_generated.h"
-#include "ophelib/wire/vec_packed_ciphertext_generated.h"
-#include "ophelib/wire/mat_float_generated.h"
-#include "ophelib/wire/mat_integer_generated.h"
-#include "ophelib/wire/mat_ciphertext_generated.h"
-#include "ophelib/wire/public_key_generated.h"
-#include "ophelib/wire/private_key_generated.h"
-#include "ophelib/wire/key_pair_generated.h"
+#include "ophelib/schemas/integer_generated.h"
+#include "ophelib/schemas/ciphertext_generated.h"
+#include "ophelib/schemas/packed_ciphertext_generated.h"
+#include "ophelib/schemas/vec_float_generated.h"
+#include "ophelib/schemas/vec_integer_generated.h"
+#include "ophelib/schemas/vec_ciphertext_generated.h"
+#include "ophelib/schemas/vec_packed_ciphertext_generated.h"
+#include "ophelib/schemas/mat_float_generated.h"
+#include "ophelib/schemas/mat_integer_generated.h"
+#include "ophelib/schemas/mat_ciphertext_generated.h"
+#include "ophelib/schemas/public_key_generated.h"
+#include "ophelib/schemas/private_key_generated.h"
+#include "ophelib/schemas/key_pair_generated.h"
 
 #include <fstream>
 #include <limits.h>
@@ -56,8 +56,8 @@ namespace ophelib {
                 typedef T value_type;
             };
 
-            /* praise the lord for C++11.
-             * This block of code deduces the type of the
+            /*
+             * This code deduces the type of the
              * values in Wire::Integers data field. This
              * type is then available as scalar_type.
              */

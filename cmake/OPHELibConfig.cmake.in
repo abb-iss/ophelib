@@ -1,0 +1,10 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(libNTL REQUIRED)
+find_dependency(libGMP REQUIRED)
+find_dependency(libGMPXX REQUIRED)
+find_dependency(Threads REQUIRED)
+find_dependency(OpenMP)
+
+include(${CMAKE_CURRENT_LIST_DIR}/OPHELibTargets.cmake)

@@ -3,6 +3,14 @@
 #include <sstream>
 #include <unistd.h>
 
+#ifndef OPHELIB_VERSION
+#define OPHELIB_VERSION unknown-version
+#endif
+
+#ifndef OPHELIB_GIT_REF
+#define OPHELIB_GIT_REF unknown-ref
+#endif
+
 namespace ophelib {
     const Integer nCr(const Integer n_, const Integer r_) {
         Integer n = n_, r;
@@ -53,6 +61,14 @@ namespace ophelib {
 
     std::string ophelib_version() {
         return std::string(STR(OPHELIB_VERSION));
+    }
+
+    bool ophelib_openmp_enabled() {
+#ifdef OPHELIB_OPENMP_ENABLED
+        return true;
+#else
+        return false;
+#endif
     }
 
     StopWatch::StopWatch(std::string name_, int n_iter_)
